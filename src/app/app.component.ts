@@ -17,7 +17,7 @@ interface Products {
 export class AppComponent {
   title = 'nove-rous';
   date = new Date();
-  wsp = 'https://api.whatsapp.com/send?phone=51929157461&text= 👋✋👋  ¡Hola! rous, tienes disponible,';
+  wsp = 'https://api.whatsapp.com/send?phone=51929157461&text= 👋✋👋  ¡Hola! rous 👧, tienes disponible,';
   products: Products[] = [
     {
       code: 'MOL01',
