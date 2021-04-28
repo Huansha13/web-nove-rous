@@ -1,0 +1,32 @@
+<div class="container">
+  <h3>Lista de todo los productos</h3>
+  <div class=""  style="overflow-x:auto;">
+    <table class="tbl-products" role="table">
+      <thead role="rowgroup">
+      <tr role="row">
+        <th role="columnheader" class="num-order">N°</th>
+        <th role="columnheader" class="col-th">Nombre producto</th>
+        <th role="columnheader" class="col-th">Descripción</th>
+        <th role="columnheader" class="col-th">Precio</th>
+        <th role="columnheader" class="col-th"> Link-Img </th>
+        <th role="columnheader" class="col-th">Acciones</th>
+      </tr>
+      </thead>
+      <tbody role="rowgroup">
+        <tr role="row" class="file-tr" *ngFor="let prod of products$ | async; let i = index">
+          <td role="cell" >{{i + 1}}</td>
+          <td role="cell" >{{prod.name}}</td>
+          <td role="cell" >{{prod.description}}</td>
+          <td role="cell" >S/. {{prod.price}}</td>
+          <td role="cell" ><div class="link-td"><a href="{{prod.img}}" target="_blank"><img [src]="prod.img" alt=""></a></div></td>
+          <td role="cell"  class="actions-btn">
+            <button class="btn-update btn" (click)="onGoToEdit(prod)"><i class="uil uil-pen"></i></button>
+            <button class="btn-delete btn" (click)="onGoToDelete(prod.id)"><i class="uil uil-trash"></i></button>
+          </td>
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+
+</div>

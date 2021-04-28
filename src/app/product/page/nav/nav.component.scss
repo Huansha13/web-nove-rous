@@ -1,0 +1,84 @@
+nav {
+  background: #272D33;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding: 0 20px;
+}
+.logo {
+  align-items: center;
+}
+.logo-nove {
+  width: 30px;
+  height: 30px;
+}
+.title-logo {
+  font-size: 16px;
+  font-weight: 500;
+  color: #272D33;
+  p {
+    margin: 0 0 0;
+    letter-spacing: 0.1em;
+    font-weight: 400;
+    font-size: 14px;
+    padding: 1px 4px;
+    border-radius: 2px;
+    color: #fff;
+    display: table;
+    background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
+  }
+}
+.usr {
+  display: flex;
+  align-items: center;
+  span {
+    color: #FFFFFF;
+    &:first-child {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 28px;
+      height: 28px;
+      background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
+      font-size: 17px;
+      margin-right: 10px;
+      padding: 10px;
+      border-radius: 100000px;
+      cursor: pointer;
+    }
+  }
+}
+.routers {
+  ul {
+    display: flex;
+    list-style: none;
+    padding: unset;
+    margin-left: 10px;
+  }
+  li {
+    margin-right: 10px;
+  }
+  li a {
+    text-decoration: none;
+    color: #FFFFFF;
+    cursor: pointer;
+    &:hover {
+      color: #DD2476;
+    }
+  }
+}
+.active {
+  color: #FF512F !important;
+}
+.web {
+  display: inline-flex;
+}
+@media (max-width: 720px) {
+  .logo-nove {
+    display: none;
+  }
+  .web {
+    display: none;
+  }
+}

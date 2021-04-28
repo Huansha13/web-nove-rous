@@ -1,0 +1,38 @@
+<form class="container" (ngSubmit)="onSave()" [formGroup]="productForm" >
+  <div class="wrap-add">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="input">
+          <label for="nombreproducto">Nombre de producto</label>
+          <br>
+          <input type="text" name="" id="nombreproducto" placeholder="Ingrese el nombre del producto" formControlName="name">
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="input">
+          <label for="description">Descripción del producto</label>
+          <br>
+          <input type="text" name="" id="description" placeholder="Ingrese una descripción" formControlName="description">
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="input">
+          <label for="price">Precio</label>
+          <br>
+          <input type="text" name="" id="price" placeholder="Ingrese el precio del producto" formControlName="price">
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+        <div class="input">
+          <label for="link-img">Foto</label>
+          <br>
+          <input type="text" name="" id="link-img" placeholder="Ingrese el link de la foto" formControlName="img">
+        </div>
+      </div>
+
+    </div>
+    <div class="btn-save">
+      <button type="submit" class="save">Guardar Datos</button>
+    </div>
+  </div>
+</form>

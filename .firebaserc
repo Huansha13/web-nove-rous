@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "nove-rous": {
+      "hosting": {
+        "nove-rous": [
+          "nove-rous"
+        ]
+      }
+    }
+  }
+}
