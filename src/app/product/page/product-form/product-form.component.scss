@@ -62,3 +62,13 @@
 .input {
   margin-bottom: 10px;
 }
+.is-invalid {
+  &:focus {
+    border: 2px solid #DD2476;
+  }
+}
+.is-valid {
+  &:focus {
+    border: 2px solid #04C45C;
+  }
+}

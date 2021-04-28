@@ -36,7 +36,11 @@ export class ProductFormComponent implements OnInit {
       this.productForm.reset();
     }
   }
-
+  isValidField(field: string): string {
+    const validatedFiled = this.productForm.get(field);
+    return (!validatedFiled.valid && validatedFiled.touched)
+    ? 'is-invalid' : validatedFiled.touched ? 'is-valid' : '';
+  }
   private initForm(): void {
     this.productForm =  this.fb.group({
       name: ['', [Validators.required]],

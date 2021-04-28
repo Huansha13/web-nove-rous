@@ -5,28 +5,32 @@
         <div class="input">
           <label for="nombreproducto">Nombre de producto</label>
           <br>
-          <input type="text" name="" id="nombreproducto" placeholder="Ingrese el nombre del producto" formControlName="name">
+          <input type="text" id="nombreproducto" placeholder="Ingrese el nombre del producto" formControlName="name"
+                 [class]="isValidField('name')">
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="input">
           <label for="description">Descripción del producto</label>
           <br>
-          <input type="text" name="" id="description" placeholder="Ingrese una descripción" formControlName="description">
+          <input type="text" id="description" placeholder="Ingrese una descripción" formControlName="description"
+                 [class]="isValidField('description')">
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="input">
           <label for="price">Precio</label>
           <br>
-          <input type="text" name="" id="price" placeholder="Ingrese el precio del producto" formControlName="price">
+          <input type="text" id="price" placeholder="Ingrese el precio del producto" formControlName="price"
+                 [class]="isValidField('price')">
         </div>
       </div>
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="input">
           <label for="link-img">Foto</label>
           <br>
-          <input type="text" name="" id="link-img" placeholder="Ingrese el link de la foto" formControlName="img">
+          <input type="text" id="link-img" placeholder="Ingrese el link de la foto" formControlName="img"
+                 [class]="isValidField('img')">
         </div>
       </div>
 
