@@ -11,9 +11,19 @@
       </ul>
     </div>
   </div>
-  <div class="usr">
-    <span><i class="uil uil-user"></i></span>
-    <span class="web">Rosmene Ñope J.</span>
+  <div class="d-flex">
+    <div class="exit">
+      <ul>
+        <li>
+          <a class="close" (click)="onLogout()"> Salir </a>
+        </li>
+      </ul>
+    </div>
+    <div class="usr">
+      <span><i class="uil uil-user"></i></span>
+      <span class="web" *ngIf="isLogged" #login>{{usr?.email}}</span>
+    </div>
   </div>
+
 </nav>
 <router-outlet></router-outlet>

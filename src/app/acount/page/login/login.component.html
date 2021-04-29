@@ -9,11 +9,11 @@
         <h2 class="title">Ingrese a su cuenta</h2>
       </div>
     </div>
-    <div class="from-log">
-      <input type="text" placeholder="Ingrese su usuario">
-      <input type="text" placeholder="Ingrese su contraseña">
+    <form class="from-log" [formGroup]="loginForm" (ngSubmit)="onLogin()">
+      <input type="text" placeholder="Ingrese su usuario" formControlName="email">
+      <input type="password" placeholder="Ingrese su contraseña" formControlName="password">
       <br>
-      <button type="submit" class="btn-login" (click)="admin()"> Inciar Sesión</button>
-    </div>
+      <button type="submit" class="btn-login"> Inciar Sesión</button>
+    </form>
   </div>
 </div>

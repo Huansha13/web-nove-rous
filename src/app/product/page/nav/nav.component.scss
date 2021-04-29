@@ -71,6 +71,11 @@ nav {
 .active {
   color: #FF512F !important;
 }
+.close {
+  margin-right: 25px;
+  opacity: 0.5;
+  color: #fff;
+}
 .web {
   display: inline-flex;
 }
@@ -80,5 +85,8 @@ nav {
   }
   .web {
     display: none;
+  }
+  .close {
+    margin-right: 10px;
   }
 }
