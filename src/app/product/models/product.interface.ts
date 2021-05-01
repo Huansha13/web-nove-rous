@@ -4,4 +4,5 @@ interface Products {
   img: string;
   description: string;
   price: string;
+  stock: string;
 }

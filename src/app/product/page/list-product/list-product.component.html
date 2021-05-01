@@ -8,25 +8,54 @@
         <th role="columnheader" class="col-th">Nombre producto</th>
         <th role="columnheader" class="col-th">Descripción</th>
         <th role="columnheader" class="col-th">Precio</th>
-        <th role="columnheader" class="col-th"> Link-Img </th>
-        <th role="columnheader" class="col-th">Acciones</th>
+        <th role="columnheader" class="col-th"> Total </th>
+        <th role="columnheader" class="col-th"> Vendidos </th>
+        <th role="columnheader" class="col-th"> Stock </th>
+        <th role="columnheader" class="col-th action">Acciones</th>
       </tr>
       </thead>
       <tbody role="rowgroup">
         <tr role="row" class="file-tr" *ngFor="let prod of products$ | async; let i = index">
           <td role="cell" >{{i + 1}}</td>
-          <td role="cell" >{{prod.name}}</td>
+          <td role="cell" >
+            <div class="d-flex sectionimg">
+              <div class="link-td"><a href="{{prod.img}}" target="_blank"><img [src]="prod.img" alt=""></a></div>
+              {{prod.name}}
+            </div>
+          </td>
           <td role="cell" >{{prod.description}}</td>
           <td role="cell" >S/. {{prod.price}}</td>
-          <td role="cell" ><div class="link-td"><a href="{{prod.img}}" target="_blank"><img [src]="prod.img" alt=""></a></div></td>
+          <td role="cell" class="info-venta">{{prod.total}}</td>
+          <td role="cell" class="info-venta">{{prod.vendidos}}</td>
+          <td role="cell" class="info-venta">{{prod.total - prod.vendidos}}</td>
           <td role="cell"  class="actions-btn">
             <button class="btn-update btn" (click)="onGoToEdit(prod)"><i class="uil uil-pen"></i></button>
+            &nbsp;
             <button class="btn-delete btn" (click)="onGoToDelete(prod.id)"><i class="uil uil-trash"></i></button>
           </td>
         </tr>
       </tbody>
 
+
+      <style>
+        .sectionimg {
+          align-items: center;
+        }
+      </style>
+
     </table>
   </div>
 
 </div>
+
+<style>
+  .info-venta {
+    text-align: center;
+  }
+  .action {
+    text-align: center !important;
+  }
+  .actions-btn {
+    text-align: end !important;
+  }
+</style>

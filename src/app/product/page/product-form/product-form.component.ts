@@ -21,7 +21,7 @@ export class ProductFormComponent implements OnInit {
 
   ngOnInit(): void {
     if (typeof this.product === 'undefined') {
-      this.router.navigate(['/admin/add']);
+      this.router.navigate(['admin/add']);
     }else {
       this.productForm.patchValue(this.product);
     }
@@ -34,6 +34,7 @@ export class ProductFormComponent implements OnInit {
       const productId = this.product?.id || null;
       this.producService.onSaveProducts(product, productId);
       this.productForm.reset();
+      this.router.navigate(['/admin/list']);
     }
   }
   isValidField(field: string): string {
@@ -46,7 +47,9 @@ export class ProductFormComponent implements OnInit {
       name: ['', [Validators.required]],
       img: ['', [Validators.required]],
       description: ['', [Validators.required]],
-      price: ['', [Validators.required]]
+      price: ['', [Validators.required]],
+      total: ['', [Validators.required]],
+      vendidos: ['', [Validators.required]]
     });
   }
 }

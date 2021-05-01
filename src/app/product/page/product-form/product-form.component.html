@@ -17,7 +17,7 @@
                  [class]="isValidField('description')">
         </div>
       </div>
-      <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
         <div class="input">
           <label for="price">Precio</label>
           <br>
@@ -25,6 +25,23 @@
                  [class]="isValidField('price')">
         </div>
       </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="input">
+          <label for="price">Total</label>
+          <br>
+          <input type="text" id="total" placeholder="Ingrese el total" formControlName="total"
+                 [class]="isValidField('price')">
+        </div>
+      </div>
+      <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+        <div class="input">
+          <label for="stock">Ventas</label>
+          <br>
+          <input type="text" id="ventas" placeholder="Ingrese lo vendido" formControlName="vendidos"
+                 [class]="isValidField('price')">
+        </div>
+      </div>
+
       <div class="col-12 col-sm-12 col-md-12 col-lg-12">
         <div class="input">
           <label for="link-img">Foto</label>
