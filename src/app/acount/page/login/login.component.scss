@@ -3,7 +3,6 @@
   //padding: 50px;
   height: 100vh;
   transition: all .5s;
-  position: fixed;
 }
 .content {
   margin: auto;
@@ -76,12 +75,15 @@
   display: block;
 }
 
-@media (max-width: 720px) {
+@media (max-width: 767px) {
   .section-logo-title {
     align-items: center;
     padding: 0 0 20px 0;
   }
   .content{
     width: 100%;
+  }
+  .wrap-login {
+    height: 100% !important;
   }
 }
