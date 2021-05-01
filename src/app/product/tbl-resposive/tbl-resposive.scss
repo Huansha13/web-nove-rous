@@ -53,6 +53,9 @@ and (max-device-width: 1024px)  {
   td:nth-of-type(2):before { content: "Nombre producto"; }
   td:nth-of-type(3):before { content: "Descripción"; }
   td:nth-of-type(4):before { content: "Precio"; }
-  td:nth-of-type(5):before { content: "Link-Img"; }
-  td:nth-of-type(6):before { content: "Acciones"; }
+  td:nth-of-type(5):before { content: "Total"; }
+  td:nth-of-type(6):before { content: "Vendidos"; }
+  td:nth-of-type(7):before { content: "Stock"; }
+  td:nth-of-type(8):before { content: "Acciones"; }
+
 }
