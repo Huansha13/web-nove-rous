@@ -22,7 +22,9 @@
           </div>
           <div class="copy">
             <div class="text-copy">{{urlImg | async}}</div>
-            <button *ngIf="!urlImg == ''" cdkCopyToClipboard="{{urlImg | async}}" class="btn btn-outline-info btn-sm">Copy</button>
+            <button *ngIf="urlImg | async; else btnNone" cdkCopyToClipboard="{{urlImg | async}}" class="btn btn-outline-info btn-sm">Copy</button>
+            <ng-template #btnNone>
+            </ng-template>
           </div>
         </div>
         <br>
