@@ -54,7 +54,7 @@ nav {
     display: flex;
     list-style: none;
     padding: unset;
-    margin-left: 10px;
+    margin: 0 0 0 10px;
   }
   li {
     margin-right: 10px;
@@ -71,13 +71,20 @@ nav {
 .active {
   color: #FF512F !important;
 }
+.exit ul {
+  margin: 0 0 0 0;
+}
 .close {
   margin-right: 25px;
   opacity: 0.5;
   color: #fff;
+  text-decoration: none;
 }
 .web {
   display: inline-flex;
+}
+.exit-usr {
+  align-items: center !important;
 }
 @media (max-width: 720px) {
   .logo-nove {

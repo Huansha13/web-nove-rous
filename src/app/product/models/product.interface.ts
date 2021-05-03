@@ -1,8 +1,9 @@
 interface Products {
   id?: string;
   name: string;
-  img: string;
+  // img?: any;
   description: string;
   price: string;
   stock: string;
+  file: any;
 }

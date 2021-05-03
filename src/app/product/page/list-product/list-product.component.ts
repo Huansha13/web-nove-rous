@@ -33,7 +33,6 @@ export class ListProductComponent implements OnInit {
   async onGoToDelete(prodId: string): Promise<void> {
     try {
       await this.prodService.onDeleteProduts(prodId);
-      alert('Se elemino el producto');
     } catch (err) {
       console.log(err);
     }

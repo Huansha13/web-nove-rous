@@ -1,5 +1,7 @@
 <div class="container">
-  <h3>Lista de todo los productos</h3>
+  <br>
+  <h5>Lista de todo los productos</h5>
+  <br>
   <div class=""  style="overflow-x:auto;">
     <table class="tbl-products" role="table">
       <thead role="rowgroup">
@@ -23,15 +25,15 @@
               {{prod.name}}
             </div>
           </td>
-          <td role="cell" >{{prod.description}}</td>
+          <td role="cell" ><div class="descrip">{{prod.description}}</div></td>
           <td role="cell" >S/. {{prod.price}}</td>
           <td role="cell" class="info-venta">{{prod.total}}</td>
           <td role="cell" class="info-venta">{{prod.vendidos}}</td>
           <td role="cell" class="info-venta">{{prod.total - prod.vendidos}}</td>
           <td role="cell"  class="actions-btn">
-            <button class="btn-update btn" (click)="onGoToEdit(prod)"><i class="uil uil-pen"></i></button>
+            <button class="btn btn-primary btn-sm" (click)="onGoToEdit(prod)"><i class="uil uil-pen"></i></button>
             &nbsp;
-            <button class="btn-delete btn" (click)="onGoToDelete(prod.id)"><i class="uil uil-trash"></i></button>
+            <button class="btn btn-danger btn-sm" (click)="onGoToDelete(prod.id)"><i class="uil uil-trash"></i></button>
           </td>
         </tr>
       </tbody>
@@ -52,11 +54,17 @@
   .info-venta {
     text-align: center;
   }
+  .descrip {
+    width: 360px;
+  }
+  .sectionimg {
+    width: 290px;
+  }
   .action {
     text-align: center !important;
   }
   .actions-btn {
-    text-align: end !important;
+    text-align: center !important;
   }
   @media (max-width: 767px) {
   .info-venta {
@@ -68,5 +76,14 @@
   .actions-btn {
     text-align: start !important;
   }
+  .sectionimg {
+    display: block !important;
+  }
+    .descrip {
+      width: auto !important;
+    }
+    .sectionimg {
+      width: auto !important;
+    }
   }
 </style>

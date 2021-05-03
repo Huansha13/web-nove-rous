@@ -8,6 +8,7 @@ import { NavComponent } from './page/nav/nav.component';
 import { EditProducComponent } from './page/edit-produc/edit-produc.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductFormComponent } from './page/product-form/product-form.component';
+import {ClipboardModule} from '@angular/cdk/clipboard';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ProductFormComponent } from './page/product-form/product-form.component
   imports: [
     CommonModule,
     ProductRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ClipboardModule
   ]
 })
 export class ProductModule { }

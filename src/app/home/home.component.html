@@ -21,15 +21,18 @@
           <div class="img-product">
             <img [src]="product.img" alt="">
           </div>
-          <h3 class="title-product">{{product.name}}</h3>
+          <h6 class="title-product">{{product.name}}</h6>
           <p class="description-product">{{product.description}}</p>
-          <div class="price-icons-wsp d-flex">
-            <div class="price">
-              <span>S/. {{product.price}}</span>
-            </div>
-            <div class="icon-wsp">
-              <a href="{{wsp}} *{{product.name}}* 😊" target="_blank"> Pedir <i class="uil uil-whatsapp"></i></a>
-            </div>
+          <div class="price mt-3" style="width: 100%">
+            <a class="btn btn-outline-success btn-sm"
+               style="width: 100%"
+               href="{{wsp}} *{{product.name}}* 😊"
+               target="_blank">
+              <span>Consultar producto |
+              <i class="uil uil-whatsapp" style="font-size: 19px"></i>
+                WhatsApp
+              </span>
+            </a>
           </div>
         </div>
       </div>
