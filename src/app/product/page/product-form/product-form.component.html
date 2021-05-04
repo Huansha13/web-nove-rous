@@ -110,10 +110,11 @@
                 <a routerLink="/admin/list" class="btn btn-danger btn-save"> Cancelar </a>
               </div>
               <div class="col-6">
-                <button type="submit" *ngIf="urlImg | async; else btnDisabled" class="btn btn-success btn-save ">Guardar Datos</button>
-                <ng-template #btnDisabled>
-                  <button type="submit" disabled="true" class="btn btn-success btn-save ">Guardar Datos</button>
-                </ng-template>
+                <button type="submit" class="btn btn-success btn-save ">Guardar Datos</button>
+<!--                <button type="submit" *ngIf="urlImg | async; else btnDisabled" class="btn btn-success btn-save ">Guardar Datos</button>-->
+<!--                <ng-template #btnDisabled>-->
+<!--                  <button type="submit" disabled="true" class="btn btn-success btn-save ">Guardar Datos</button>-->
+<!--                </ng-template>-->
               </div>
             </div>
           </div>
