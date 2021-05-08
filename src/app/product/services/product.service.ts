@@ -44,8 +44,8 @@ export class ProductService {
     });
   }
 
-  private getProducts(): void {
-    this.products = this.productsCollection.snapshotChanges().pipe(
+  private getProducts(): Observable<Products[]> {
+    return this.products = this.productsCollection.snapshotChanges().pipe(
       map(actions => actions.map(a => a.payload.doc.data() as Products))
     );
   }

@@ -1,7 +1,7 @@
-interface Products {
+export interface Products {
   id?: string;
   name: string;
-  // img?: any;
+   img?: any;
   description: string;
   price: string;
   stock: string;

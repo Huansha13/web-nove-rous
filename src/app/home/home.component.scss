@@ -17,6 +17,8 @@ nav {
   ul {
     display: flex;
     align-items: center;
+    margin: 0;
+    padding: 0;
   }
   ul li {
     list-style: none;
@@ -147,4 +149,20 @@ footer {
   margin: auto;
   display: flex;
   align-items: center;
+}
+
+.loading__spinner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-width: 100%;
+  min-height: 100vh;
+  position: fixed;
+  background: #FFFFFF;
+  z-index: 1;
+  top: 0;
+}
+.txt__spinner {
+  margin-top: 15px;
 }
