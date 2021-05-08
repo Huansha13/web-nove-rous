@@ -6,4 +6,6 @@ export interface Products {
   price: string;
   stock: string;
   file: any;
+  total: number;
+  vendidos: number;
 }

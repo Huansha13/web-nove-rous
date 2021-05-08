@@ -3,17 +3,22 @@ import { Injectable } from '@angular/core';
 // external
 import { AngularFireAuth } from '@angular/fire/auth';
 // @ts-ignore
-import { auth } from 'firebase/app';
+import firebase, { auth } from 'firebase/app';
 // @ts-ignore
 import { User } from 'firebase';
 import {first} from 'rxjs/operators';
+import {Observable} from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
 export class AccountService {
+
+  public userData$: Observable<firebase.User>;
   public auth: auth;
   public user: User;
-  constructor( public afAuth: AngularFireAuth) { }
+  constructor( public afAuth: AngularFireAuth) {
+    this.userData$ = afAuth.authState;
+  }
 
   // @ts-ignore
   async onLogin( email: string, password: string ): Promise<firebase.auth.UserCredential> {

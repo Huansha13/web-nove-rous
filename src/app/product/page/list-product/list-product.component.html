@@ -1,9 +1,16 @@
 <div class="container">
+  <ng-template #loading>
+    <div class="text-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only"></span>
+      </div>
+    </div>
+  </ng-template>
   <br>
   <h5>Lista de todo los productos</h5>
   <br>
-  <div class=""  style="overflow-x:auto;">
-    <table class="tbl-products" role="table">
+  <div class=""  style="overflow-x:auto;" *ngIf="products$ | async as prods; else loading">
+    <table class="tbl-products" role="table" >
       <thead role="rowgroup">
       <tr role="row">
         <th role="columnheader" class="num-order">N°</th>
@@ -17,7 +24,7 @@
       </tr>
       </thead>
       <tbody role="rowgroup">
-        <tr role="row" class="file-tr" *ngFor="let prod of products$ | async; let i = index">
+        <tr role="row" class="file-tr" *ngFor="let prod of prods; let i = index">
           <td role="cell" >{{i + 1}}</td>
           <td role="cell" >
             <div class="d-flex sectionimg">
@@ -37,20 +44,15 @@
           </td>
         </tr>
       </tbody>
-
-
-      <style>
-        .sectionimg {
-          align-items: center;
-        }
-      </style>
-
     </table>
   </div>
-
 </div>
 
+
 <style>
+  .sectionimg {
+    align-items: center;
+  }
   .info-venta {
     text-align: center;
   }
