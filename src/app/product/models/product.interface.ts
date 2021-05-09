@@ -4,8 +4,7 @@ export interface Products {
    img?: any;
   description: string;
   price: string;
-  stock: string;
-  file: any;
+  fileRef?: string;
   total: number;
   vendidos: number;
 }

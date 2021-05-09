@@ -13,7 +13,7 @@ export class HomeComponent implements OnInit {
   date = new Date();
   wsp = 'https://api.whatsapp.com/send?phone=51929157461&text= 👋✋👋  ¡Hola! rous 👧, tienes disponible,';
 
-  products$ = this.prodService.products;
+  products$ = this.prodService.getAllProduct();
 
   constructor( private router: Router, private prodService: ProductService) { }
 

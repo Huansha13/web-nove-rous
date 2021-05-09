@@ -9,15 +9,16 @@ import { EditProducComponent } from './page/edit-produc/edit-produc.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import { ProductFormComponent } from './page/product-form/product-form.component';
 import {ClipboardModule} from '@angular/cdk/clipboard';
+import { ProductEditComponent } from './page/product-edit/product-edit.component';
 
 
 @NgModule({
-  declarations: [AddProductComponent, ListProductComponent, NavComponent, EditProducComponent, ProductFormComponent],
+  declarations: [AddProductComponent, ListProductComponent, NavComponent, EditProducComponent, ProductFormComponent, ProductEditComponent],
   imports: [
     CommonModule,
     ProductRoutingModule,
     ReactiveFormsModule,
-    ClipboardModule
+    ClipboardModule,
   ]
 })
 export class ProductModule { }
