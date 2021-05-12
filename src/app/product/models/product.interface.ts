@@ -6,5 +6,6 @@ export interface ProductI {
   priceProd: number;
   totalProd: number;
   soldProd: number;
+  // off: number;
   fileRef?: string;
 }

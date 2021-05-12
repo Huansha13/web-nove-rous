@@ -14,7 +14,7 @@ export class HomeComponent implements OnInit {
 
   date = new Date();
   wsp = 'https://api.whatsapp.com/send?phone=51929157461&text= 👋✋👋  ¡Hola! rous 👧, tienes disponible,';
-
+  off = 15;
   public products$: Observable<ProductI[]>;
   // @Input() prod: ProductI;
   constructor( private router: Router, private prodService: ProductService) { }
