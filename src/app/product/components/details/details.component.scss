@@ -1,0 +1,106 @@
+.box__img__product {
+  transition: all .5s;
+
+  img {
+    width: 100%;
+    height: auto;
+    min-height: 500px;
+    object-fit: cover;
+     filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.25));
+    border-radius: 5px 5px 0 0;
+  }
+}
+.box__data__container {
+  padding: 25px 35px  0 35px;
+}
+.nameProd__h1 {
+  font-size: 23px;
+  font-weight: 500;
+  line-height: 28px;
+  text-transform: full-size-kana;
+  margin: 0;
+}
+.description__p {
+ line-height: 30px;
+  font-size: 17px;
+  opacity: .7;
+  margin: 5px 0 5px 0;
+  padding-bottom: 5px;
+}
+.totalProduct {
+  background: #8CC909 !important;
+  color: #FFFFFF !important;
+  span {
+    padding: 3px 13px;
+    border-radius: 10000000000000000000px;
+    background: #7FB60B;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: -10px;
+    margin-right: 10px;
+  }
+}
+.soldProduct_content {
+  background: #FFC300 !important;
+  color: #000 !important;
+}
+.gastoCompra {
+  background: #FF5733 !important;
+  color: #FFFFFF !important;
+}
+.money {
+  background: #097AC9 !important;
+  color: #FFFFFF !important;
+}
+.stockProd {
+  background: #DD2476!important;
+  color: #FFFFFF !important;
+}
+.pronostico {
+  width: 100%;
+  background: rgba(39, 45, 51, .9);
+  padding: 10px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  filter: drop-shadow(0px 0px 1px rgba(0, 0, 0, 0.25));
+  border-radius: 0 0 5px 5px;
+  p {
+    color: #FFFFFF;
+    margin: 0 0 7px 0;
+    font-size: 12px;
+    font-weight: 400;
+    padding-right: 7px;
+  }
+}
+.infoPronostico {
+  background: #DFFF00 !important;
+  color: #000000 !important;
+  white-space: nowrap;
+
+}
+.box__img__product {
+  position: relative;
+}
+.miGanancia {
+  background: #58D68D !important ;
+  color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+  .pronostico {
+    display: flex;
+    flex-direction: column;
+    p {
+      text-align: center;
+      padding-right: 0;
+    }
+  }
+  .box__data__container {
+    padding: 25px 0px  0 0px;
+  }
+}

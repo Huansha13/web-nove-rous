@@ -23,7 +23,7 @@
       <ul>
         <li><a href="https://www.facebook.com/Novedades-ROUS-108416914722739" target="_blank"> <i class="uil uil-facebook-f"></i> </a></li>
         <li><a href="" target="_blank"> <i class="uil uil-instagram"></i> </a></li>
-        <li><a routerLink="/admin"> Admin </a></li>
+        <li><a routerLink="/admin" mat-button> Admin </a></li>
 
       </ul>
     </div>
@@ -31,23 +31,21 @@
   <br> <br>
   <div class="container" *ngIf="products$ | async as products; else loading">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3" *ngFor="let product of products">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let product of products">
         <div class="box-product">
           <div class="img-product">
-            <img [src]="product.img" alt="">
+            <img [src]="product.imgProd" alt="">
           </div>
-          <h6 class="title-product">{{product.name}}</h6>
-          <p class="description-product">{{product.description}}</p>
-          <div class="price mt-3" style="width: 100%">
-            <a class="btn btn-outline-success btn-sm"
-               style="width: 100%"
-               href="{{wsp}} *{{product.name}}* 😊"
-               target="_blank">
-              <span>Consultar producto |
-              <i class="uil uil-whatsapp" style="font-size: 19px"></i>
-                WhatsApp
-              </span>
-            </a>
+          <div class="content__info">
+            <h3 class="title-product">{{product.nameProd}}</h3>
+            <p class="description-product">{{product.descriptionProd}}</p>
+            <div class="price mt-3" style="width: 100%">
+              <a style="width: 100%"
+                 href="{{wsp}} *{{product.nameProd}}* 😊"
+                 target="_blank" mat-stroked-button color="primary">
+                <mat-icon>motorcycle</mat-icon> Consultar producto
+              </a>
+            </div>
           </div>
         </div>
       </div>

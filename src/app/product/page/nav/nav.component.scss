@@ -56,9 +56,6 @@ nav {
     padding: unset;
     margin: 0 0 0 10px;
   }
-  li {
-    margin-right: 10px;
-  }
   li a {
     text-decoration: none;
     color: #FFFFFF;
@@ -86,7 +83,13 @@ nav {
 .exit-usr {
   align-items: center !important;
 }
-@media (max-width: 720px) {
+.menu__section {
+  display: none;
+}
+.menu__mobile {
+  display: none;
+}
+@media (max-width: 768px) {
   .logo-nove {
     display: none;
   }
@@ -95,5 +98,20 @@ nav {
   }
   .close {
     margin-right: 10px;
+  }
+  .menu__section {
+    display: block;
+    margin-right: 10px;
+  }
+  .menu__mobile {
+    background: #293440;
+    padding: 10px 0;
+    display: none;
+  }
+  .web {
+    display: none;
+  }
+  #menu:checked + .menu__mobile {
+    display: block !important;
   }
 }

@@ -1,13 +1,21 @@
 <nav>
   <div class="logo d-flex">
     <img class="logo-nove" src="https://res.cloudinary.com/unjfsc/image/upload/v1619592425/logo-nove_wr4p2i.svg" alt="">
+    <div class="menu__section">
+      <label for="menu">
+        <a mat-icon-button color="accent">
+          <mat-icon>menu</mat-icon>
+        </a>
+      </label>
+    </div>
     <div class="title-logo">
       <p>@novedadesrous</p>
     </div>
-    <div class="routers">
+    <div class="routers web">
       <ul>
-        <li><a class="list" routerLinkActive="active" routerLink="/admin/list">List</a></li>
-        <li><a class="add" routerLinkActive="active" routerLink="/admin/add">Add</a></li>
+        <li><a class="list" routerLinkActive="active" routerLink="/home" mat-button>Catalogo</a></li>
+        <li><a class="list" routerLinkActive="active" routerLink="/admin/list" mat-button>List</a></li>
+        <li><a class="add" (click)="onNewProd()" mat-button>Add</a></li>
       </ul>
     </div>
   </div>
@@ -15,7 +23,7 @@
     <div class="exit">
       <ul>
         <li>
-          <a class="close" (click)="onLogout()"> Salir </a>
+          <a class="close" (click)="onLogout()" mat-button> Salir </a>
         </li>
       </ul>
     </div>
@@ -24,6 +32,15 @@
       <span class="web" *ngIf="isLogged" #login>{{usr?.email}}</span>
     </div>
   </div>
-
 </nav>
+<input type="checkbox" id="menu" hidden>
+<div class="menu__mobile">
+  <div class="routers">
+    <ul>
+      <li><a class="list" routerLinkActive="active" routerLink="/home" mat-button>Catalogo</a></li>
+      <li><a class="list" routerLinkActive="active" routerLink="/admin/list" mat-button>List</a></li>
+      <li><a class="add" (click)="onNewProd()" mat-button>Add</a></li>
+    </ul>
+  </div>
+</div>
 <router-outlet></router-outlet>

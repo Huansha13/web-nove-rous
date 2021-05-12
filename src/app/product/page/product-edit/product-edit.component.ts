@@ -1,10 +1,9 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {Router} from '@angular/router';
-import {Products} from '../../models/product.interface';
-import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 import {ProductService} from '../../services/product.service';
-import {ProductFormComponent} from '../product-form/product-form.component';
-
+import {ProductI} from '../../models/product.interface';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
+import Swal from 'sweetalert2';
+import {MatDialog} from '@angular/material/dialog';
 @Component({
   selector: 'app-product-edit',
   templateUrl: './product-edit.component.html',
@@ -12,69 +11,87 @@ import {ProductFormComponent} from '../product-form/product-form.component';
 })
 export class ProductEditComponent implements OnInit {
 
-  productsV = null;
-  editProductForm: FormGroup;
   private image: any;
-  private imageOriginas: any;
-  public imgSrc: string = 'https://kinsta.com/es/wp-content/uploads/sites/8/2017/07/carga-masiva.png';
+  private imageOriginal: any;
+  imgPreview = 'https://res.cloudinary.com/yfr/image/upload/v1620793519/portafolio/imgUpload_jmhq44.svg';
+  @Input() prod: ProductI;
+  constructor( private postSv: ProductService,
+               private dialog: MatDialog) {}
 
-  @Input() product: Products;
-constructor( private roter: Router,
-             private productService: ProductService,
-             private fb: FormBuilder) {
-    const navigation = this.roter.getCurrentNavigation();
-    this.productsV = navigation?.extras?.state?.value;
-    this.initForm();
-}
-
-
-  private initForm(): void {
-    this.editProductForm = this.fb.group({
-      id: ['', [Validators.required]],
-      name: ['', [Validators.required]],
-      img: ['', [Validators.required]],
-      description: ['', [Validators.required]],
-      price: ['', [Validators.required]],
-      total: ['', [Validators.required]],
-      vendidos: ['', [Validators.required]],
-    });
-  }
+  public editProductForm = new FormGroup({
+    id: new FormControl('', Validators.required),
+    nameProd: new FormControl('', Validators.required),
+    imgProd: new FormControl(''),
+    descriptionProd: new FormControl('', Validators.required),
+    totalProd: new FormControl('', Validators.required),
+    priceProd: new FormControl('', Validators.required),
+    soldProd: new FormControl('', Validators.required),
+  });
 
   ngOnInit(): void {
-    this.image = this.product.img;
-    this.imageOriginas = this.product.img;
-    this.editProductForm.patchValue(this.productsV);
+    this.image = this.prod.imgProd;
+    this.imageOriginal = this.prod.imgProd;
+    this.initValuesForm();
+    this.imgPreview = this.prod.imgProd;
+  }
+  alertErr(): void {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Llena los campos!',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+  alertOk(): void {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se actualizo!',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+  editProduct( prod: ProductI): any {
+    if (this.editProductForm.valid) {
+      if (this.image === this.imageOriginal) {
+        prod.imgProd = this.imageOriginal;
+        this.postSv.editPostById(prod);
+        this.alertOk();
+        this.dialog.closeAll();
+      } else {
+        this.postSv.editPostById(prod, this.image);
+        this.alertOk();
+        this.dialog.closeAll();
+      }
+    } else {
+      this.alertErr();
+    }
+
+
   }
 
-  editProduct(prod: Products): void {
-    if (this.image === this.imageOriginas) {
-      prod.img = this.imageOriginas;
-      this.productService.editPostById(prod);
+  handleImg(event: any): void {
+    if (event.target.files && event.target.files[0]) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => this.imgPreview = e.target.result;
+      reader.readAsDataURL(event.target.files[0]);
+      this.image = event.target.files[0];
     } else {
-      this.productService.editPostById(prod, this.image);
+      this.imgPreview = this.prod.imgProd;
     }
   }
-  showPreviewEdit(event: any): void {
-    // if (event.target.files && event.target.files[0]) {
-    //   const reader = new FileReader();
-    //   reader.onload = (e: any) => this.imgSrc = e.target.result;
-    //   reader.readAsDataURL(event.target.files[0]);
-    //
-    // } else  {
-    //   this.imgSrc = '';
-    //   this.image = null;
-    // }
-    this.image = event.target.files[0];
-  }
-  private initValuesForm(prod: Products): void {
-    this.imgSrc = prod.img;
-    this.editProductForm.patchValue( {
-      id: prod.id,
-      name: prod.name,
-      description: prod.description,
-      price: prod.price,
-      total: prod.total,
-      vendidos: prod.vendidos
+
+
+  private initValuesForm(): void {
+    this.editProductForm.patchValue({
+      id: this.prod.id,
+      nameProd: this.prod.nameProd,
+      // imgProd: this.prod.imgProd,
+      descriptionProd: this.prod.descriptionProd,
+      totalProd: this.prod.totalProd,
+      priceProd: this.prod.priceProd,
+      soldProd: this.prod.soldProd
     });
   }
 }

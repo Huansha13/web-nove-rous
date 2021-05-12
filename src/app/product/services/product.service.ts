@@ -3,86 +3,109 @@ import {Observable} from 'rxjs';
 import {AngularFirestore, AngularFirestoreCollection} from '@angular/fire/firestore';
 import {finalize, map} from 'rxjs/operators';
 // @ts-ignore
-import { Products } from '../models/product.interface';
+import {ProductI} from '../models/product.interface';
 import {AngularFireStorage} from '@angular/fire/storage';
 import {FileI} from '../models/file.interface';
+import Swal from 'sweetalert2';
+import {Router} from '@angular/router';
+import {MatDialog} from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  private productsCollection: AngularFirestoreCollection<Products>;
+  private productsCollection: AngularFirestoreCollection<ProductI>;
+  public producData$: Observable<ProductI[]>;
   private filePath: any;
   private downloadURL: Observable<string>;
   uploadPercent$: Observable<number>;
 
   constructor( private afs: AngularFirestore,
-               private storage: AngularFireStorage ) {
-    this.productsCollection = afs.collection<Products>('products');
+               private storage: AngularFireStorage,
+               private router: Router,
+               private dialog: MatDialog) {
+    this.productsCollection = afs.collection<ProductI>('prod');
   }
-  public getAllProduct(): Observable<Products[]> {
+
+  alertOk(): void {
+    Swal.fire({
+      position: 'center',
+      icon: 'success',
+      title: 'Se guardo con exito',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+  alertErr(): void {
+    Swal.fire({
+      position: 'center',
+      icon: 'error',
+      title: 'Error al guardar información',
+      showConfirmButton: false,
+      timer: 1500
+    });
+  }
+  public getAllProduct(): Observable<ProductI[]> {
     return this.productsCollection
       .snapshotChanges()
       .pipe(
         map(action => action.map(a => {
-          const data = a.payload.doc.data() as Products;
+          const data = a.payload.doc.data() as ProductI;
           const id = a.payload.doc.id;
           return { id, ...data };
         }))
       );
   }
-  public getOneProduct(id: Products): Observable<Products> {
-    return this.afs.doc<Products>(`list/${id}`).valueChanges();
-  }
-  // tslint:disable-next-line:typedef
-  public onDeleteProduts(product: Products) {
-    return this.productsCollection.doc(product.id).delete();
+  public getOneProduct(id: ProductI): Observable<ProductI> {
+    return this.afs.doc<ProductI>(`prod/${id}`).valueChanges();
   }
 
-  public editPostById(product: Products, newImage?: FileI): Promise<void> {
+  public onDeleteProduct(prod: ProductI): Promise<void> {
+    return this.productsCollection.doc(prod.id).delete();
+  }
+
+  public editPostById(product: ProductI, newImage?: FileI): Promise<void> {
     if (newImage) {
       this.uploadImg(product, newImage);
     } else {
       return this.productsCollection.doc(product.id).update(product);
     }
   }
-  public preAdd(product: Products, image: FileI): void {
-    this.uploadImg(product, image);
+
+  public preAdd(prod: ProductI, image: FileI): void {
+    this.uploadImg(prod, image);
+    this.alertOk();
   }
+
   // tslint:disable-next-line:typedef
-  private saveProduct(product: Products) {
-    const productObj = {
-      name: product.name,
-      description: product.description,
-      img: this.downloadURL,
+  private saveProduct(prod: ProductI) {
+    const prodObj = {
+      nameProd: prod.nameProd,
+      descriptionProd: prod.descriptionProd,
+      imgProd: this.downloadURL,
       fileRef: this.filePath,
-      price: product.price,
-      total: product.total,
-      vendidos: product.vendidos
+      priceProd: prod.priceProd,
+      totalProd: prod.totalProd,
+      soldProd: prod.soldProd
     };
-    if (product.id) {
-      return this.productsCollection.doc(product.id).update(productObj).then( () => {
-        console.log('Info actualizado');
-      }).catch(( err ) =>  console.log('error al actualizar', err));
+    if (prod.id) {
+      return this.productsCollection.doc(prod.id).update(prodObj);
     } else  {
-      this.productsCollection.add(productObj).then(
-        () => console.log('Se agrego nuevo producto')
-      ).catch( err => console.log('Error', err));
+      this.productsCollection.add(prodObj);
     }
   }
 
-  private uploadImg(product: Products, image: FileI ): void {
-    this.filePath = `images/${image.name}`;
+  private uploadImg(prod: ProductI, image: FileI ): any {
+    this.filePath = `products/${image.name}`;
     const fileRef = this.storage.ref(this.filePath);
     const tack = this.storage.upload(this.filePath, image);
-    this.uploadPercent$ = tack.percentageChanges();
     tack.snapshotChanges()
       .pipe(
         finalize( () => {
           fileRef.getDownloadURL().subscribe( urlImage => {
             this.downloadURL = urlImage;
-            this.saveProduct(product);
+            this.saveProduct(prod);
           });
         })
       ).subscribe();

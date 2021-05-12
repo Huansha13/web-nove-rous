@@ -4,13 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './home/home.component';
-
-// module external
-import { AngularFireModule } from '@angular/fire';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { environment } from '../environments/environment';
-import {BUCKET} from '@angular/fire/storage';
 import {MaterialModule} from './material.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+/*  Import external */
+import {FirebsModule} from './firebs/firebs.module';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,11 +17,8 @@ import {MaterialModule} from './material.module';
     BrowserModule,
     AppRoutingModule,
     MaterialModule,
-    AngularFireModule.initializeApp(environment.firebaseConfig),
-  ],
-  providers: [
-    AngularFirestore,
-    {provide: BUCKET, useValue: 'gs://nove-rous.appspot.com\n'}
+    BrowserAnimationsModule,
+    FirebsModule
   ],
   bootstrap: [AppComponent]
 })

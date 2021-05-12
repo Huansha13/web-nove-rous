@@ -1,0 +1,11 @@
+<h2>{{data.message}}</h2>
+<div class="container">
+  <mat-dialog-content class="dialog__content">
+    <div *ngIf="data.content; else showNewForm">
+      <app-product-edit [prod]="data.content"></app-product-edit>
+    </div>
+    <ng-template #showNewForm>
+      <app-product-add></app-product-add>
+    </ng-template>
+  </mat-dialog-content>
+</div>

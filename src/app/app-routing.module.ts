@@ -12,7 +12,10 @@ const routes: Routes = [
     path: 'admin',
     loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
   },
-  {path: '', component: HomeComponent}
+  {path: '', component: HomeComponent},
+  {
+    path: 'home', redirectTo: '', pathMatch: 'full'
+  }
   ];
 
 @NgModule({

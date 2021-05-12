@@ -1,10 +1,10 @@
-export interface Products {
+export interface ProductI {
   id?: string;
-  name: string;
-   img?: any;
-  description: string;
-  price: string;
+  nameProd: string;
+  imgProd?: any;
+  descriptionProd: string;
+  priceProd: number;
+  totalProd: number;
+  soldProd: number;
   fileRef?: string;
-  total: number;
-  vendidos: number;
 }

@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import {Router} from '@angular/router';
 import {AccountService} from '../../../acount/service/account.service';
 import {Observable} from 'rxjs';
+import {MatDialog} from '@angular/material/dialog';
+import {ProductI} from '../../models/product.interface';
+import {ModalComponent} from '../../dialog/modal/modal.component';
 
 @Component({
   selector: 'app-nav',
@@ -14,13 +17,28 @@ export class NavComponent implements OnInit {
   public isLogged = false;
   public usr = null;
 
-  constructor(private router: Router, private lgService: AccountService) { }
+  constructor(private router: Router,
+              private lgService: AccountService,
+              private dialog: MatDialog) { }
 
   async ngOnInit(): Promise<void> {
     this.usr = await this.lgService.getCurrentUser();
     if (this.usr) {
       this.isLogged = true;
     }
+  }
+  openDialog(prod?: ProductI): void {
+    const config = {
+      data: {
+        message: prod ? 'Editar producto' : 'Nuevo producto',
+        content: prod
+      }
+    };
+    const dialogRef = this.dialog.open(ModalComponent, config);
+    dialogRef.afterClosed().subscribe();
+  }
+  onNewProd(): void {
+    this.openDialog();
   }
 
   async onLogout(): Promise<void> {

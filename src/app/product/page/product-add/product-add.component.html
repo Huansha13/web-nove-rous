@@ -1,5 +1,5 @@
 <div class="new__product__container">
-  <form [formGroup]="editProductForm" (ngSubmit)="editProduct(editProductForm.value)">
+  <form [formGroup]="newProdForm" (ngSubmit)="addNewProd(newProdForm.value)">
     <div class="row">
       <div class="col-12 col-sm-12 col-md-6 col-lg-4">
         <div class="previewImg">
@@ -17,7 +17,7 @@
             <mat-form-field appearance="outline">
               <mat-label>Nombre del producto</mat-label>
               <input type="text" matInput placeholder="Nombre del producto" formControlName="nameProd" required>
-              <mat-error *ngIf="editProductForm.invalid">Ingres el nombre del producto</mat-error>
+              <mat-error *ngIf="newProdForm.invalid">Ingres el nombre del producto</mat-error>
             </mat-form-field>
           </div>
           <div class="col-12">
@@ -32,7 +32,7 @@
                 <mat-form-field appearance="outline">
                   <mat-label>Precio</mat-label>
                   <input type="number" matInput placeholder="Precio prod." formControlName="priceProd" required>
-                  <mat-error *ngIf="editProductForm.invalid">Ingres el precio</mat-error>
+                  <mat-error *ngIf="newProdForm.invalid">Ingres el precio</mat-error>
                   <span matPrefix>S/.&nbsp;</span>
 
                 </mat-form-field>
@@ -51,12 +51,13 @@
               </div>
             </div>
           </div>
-        </div>
+         </div>
       </div>
     </div>
+
     <div class="container__button">
       <p>
-        <button type="submit" mat-flat-button color="accent">Actualizar</button>
+        <button type="submit" mat-flat-button color="primary">Guardar</button>
         &nbsp;
         <button mat-dialog-close mat-flat-button color="warn">Cancelar</button>
       </p>
