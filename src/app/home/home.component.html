@@ -14,6 +14,24 @@
 <div class="wrapper">
   <app-carousel></app-carousel>
   <br> <br>
+  <div class="presentation">
+   <div class="container">
+     <div class="row">
+       <div class="col-6 col-sm-6 col-md-6 col-lg-3 box-info" *ngFor="let i of dtaPre">
+         <div class="icon__info_present">
+           <div class="icon">
+             <span [innerHTML]="i.icon"></span>
+           </div>
+           <div class="info_presentation">
+             <span class="title_present">{{i.title}}</span>
+             <span>{{i.subTitle}}</span>
+           </div>
+         </div>
+       </div>
+     </div>
+   </div>
+  </div>
+  <br> <br>
   <div class="box__products__off">
     <div class="container">
       <div class="row">
@@ -30,43 +48,53 @@
       </div>
     </div>
   </div>
-  <br>
+  <br> <br> <br>
   <div class="title_general">
     <h1>Nuestros productos</h1>
-    <span>_______</span>
+    <div class="linerButton"></div>
   </div>
   <br>
+  <div class="listCategori">
+    <ul>
+      <li><a> Todos </a></li>
+    </ul>
+  </div>
+  <br> <br> <br>
   <div class="container" *ngIf="products$ | async as products; else loading">
     <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-3" *ngFor="let product of products">
+      <div class="col-6 col-sm-6 col-md-6 col-lg-3" *ngFor="let product of products">
         <div class="box-product">
-          <a routerLink="/info" class="box__a">
+          <a class="box__a">
             <div class="content_img_info">
               <div class="img-product">
                 <img [src]="product.imgProd" alt="">
+                <div style="width: 100%" class="priceOf" [ngClass]="{'price': product.off>0}">
+                  <div>
+                    <mat-chip-list *ngIf="product.off>0">
+                      <mat-chip selected class="totalProduct" color="accent">
+                        -{{product.off}}%
+                      </mat-chip>
+                    </mat-chip-list>
+                  </div>
+                </div>
               </div>
               <div class="content__info">
                 <h3 class="title-product">{{product.nameProd}}</h3>
-                <p class="description-product">{{product.descriptionProd}}</p>
-              </div>
-            </div>
-            <div style="width: 100%" class="priceOf" [ngClass]="{'price': product.off>0}">
-              <div>
-                <mat-chip-list *ngIf="product.off>0">
-                  <mat-chip selected class="totalProduct" color="accent">
-                    -{{product.off}}%
-                  </mat-chip>
-                </mat-chip-list>
-              </div>
-              <div class="dsc__price__card">
-              <span class="price__product" [ngClass]="{'priceNo': product.off>0}"
-                    *ngIf="product.priceProd>0">S/. {{product.priceProd | number:'.2-2'}}</span>
-                <span class="dsc"
-                      *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (off * 1 / 100)) | number: '.2-2'}}  </span>
-                <!--              <a href="{{wsp}} *{{product.nameProd}}* 😊"-->
-                <!--                 target="_blank" mat-mini-fab color="primary">-->
-                <!--                <mat-icon>shopping_cart</mat-icon>-->
-                <!--              </a>-->
+<!--                <p class="description-product">{{product.descriptionProd}}</p>-->
+                <div class="dsc__price__card">
+                  <span class="price__product" [ngClass]="{'priceNo': product.off>0}"
+                        *ngIf="product.priceProd>0">S/. {{product.priceProd | number:'.2-2'}}</span>
+                  <span class="dsc"
+                        *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (off * 1 / 100)) | number: '.2-2'}}  </span>
+                  <!--              <a href="{{wsp}} *{{product.nameProd}}* 😊"-->
+                  <!--                 target="_blank" mat-mini-fab color="primary">-->
+                  <!--                <mat-icon>shopping_cart</mat-icon>-->
+                  <!--              </a>-->
+                </div>
+                <div class="btn__product">
+                  <a [routerLink]="['/info', product.id]" class="btn_view" mat-button color="warn"><i class="uil uil-eye"></i> <span>Ver detalle</span></a>
+                  <a href="{{wsp}} *{{product.nameProd}}* 😊" target="_blank" class="btn_card" mat-button color="primary"> <i class="uil uil-shopping-cart"></i> <span>!Quiero pedir!</span> </a>
+                </div>
               </div>
             </div>
           </a>

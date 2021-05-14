@@ -24,6 +24,22 @@ nav {
     outline: none;
   }
 }
+.redeSociales {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  li {
+    a {
+      text-decoration: none;
+      color: #272D33;
+      i{
+        font-size: 25px;
+      }
+    }
+  }
+}
 .container__top {
   display: flex;
   align-items: center;

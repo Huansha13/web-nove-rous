@@ -30,6 +30,28 @@ export class HomeComponent implements OnInit {
       name: 'Lonchera Termica'
     }
   ];
+  dtaPre: any = [
+    {
+      icon: '<i class="uil uil-rocket"></i>',
+      title: 'Envío gratis',
+      subTitle: 'para todos tus pedidos'
+    },
+    {
+      icon: '<i class="uil uil-wallet"></i>',
+      title: 'Ahorra dinero',
+      subTitle: 'con los mejores precios'
+    },
+    {
+      icon: '<i class="uil uil-box"></i>',
+      title: 'Productos',
+      subTitle: 'con 100% de calidad'
+    },
+    {
+      icon: '<i class="uil uil-whatsapp"></i>',
+      title: 'Atención los 24/7',
+      subTitle: '(+51) 929 157 461'
+    }
+  ];
   public products$: Observable<ProductI[]>;
   // @Input() prod: ProductI;
   constructor( private router: Router,
