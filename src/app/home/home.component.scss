@@ -418,4 +418,10 @@ footer {
       font-size: 25px;
     }
   }
+  .title-product {
+    width: 100%;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
 }
