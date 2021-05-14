@@ -5,7 +5,7 @@ nav {
   justify-content: space-between;
   background-color: #fff;
   padding: 0 20px;
-  margin-bottom: 10px;
+  //margin-bottom: 10px;
 }
 
 .description-product {
@@ -69,7 +69,7 @@ nav {
   }
 }
 .content__info {
-  margin-left: 10px;
+  //margin-left: 10px;
 }
 .box-product {
   margin-bottom: 15px;
@@ -89,6 +89,10 @@ nav {
     }
   }
 }
+.box__a {
+  text-decoration: none;
+  color: #272D33;
+}
 .title-product {
   margin: 0 0 0;
   font-weight: 500;
@@ -105,8 +109,8 @@ nav {
   transition: all .5s;
   img {
     transition: all .5s ;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 250px;
     object-fit: cover;
     border-radius: 5px;
     position: relative;
@@ -119,7 +123,7 @@ nav {
   min-height: 29px;
 }
 .priceOf {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: black;
   display: flex;
@@ -130,7 +134,7 @@ nav {
   }
 }
 .price {
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
   color: black;
   display: flex;
@@ -155,7 +159,7 @@ nav {
 .price__product {
   color: black;
   margin-right: 5px;
-  font-size: 13px;
+  font-size: 15px;
   font-weight: 500;
 }
 .icon-wsp {
@@ -178,7 +182,7 @@ nav {
   }
 }
 
-@media (max-width: 720px) {
+@media (max-width: 768px) {
   //.img-product {
   //  width: 100%;
   //  height: auto !important;
@@ -191,8 +195,68 @@ nav {
     font-weight: 500;
     color: #272D33;
   }
+  .content_img_info {
+    display: flex;
+  }
+  .img-product img {
+    transition: all 0.5s;
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 5px;
+    position: relative;
+  }
+  .content__info {
+    margin-left: 10px;
+  }
+  .box-product {
+    padding-bottom: 15px;
+    margin-bottom: 15px;
+    border-bottom: .5px solid #f1f1f1;
+  }
 }
-
+.title_general {
+  width: 100%;
+  text-align: center;
+  h1 {
+    margin: 0;
+    padding: 0;
+  }
+}
+.box__product__off {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+  img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+  &:hover {
+    .txt__container {
+      background: #000;
+      color: #FFFFFF;
+    }
+  }
+}
+.txt__container {
+  font-size: 20px;
+  font-weight: 500;
+  position: absolute;
+  text-align: center;
+  letter-spacing: 0.3px;
+  bottom: 10px;
+  left: 10px;
+  right: 10px;
+  padding: 26px 5px;
+  background: #fff;
+  transition: all 0.6s;
+  -webkit-transition: all 0.6s;
+  -moz-transition: all 0.6s;
+  -o-transition: all 0.6s;
+  outline: none;
+  border: none;
+}
 footer {
   background: #272D33;
   display: flex;
@@ -222,7 +286,7 @@ footer {
   min-height: 100vh;
   position: fixed;
   background: #FFFFFF;
-  z-index: 1;
+  z-index: 20000;
   top: 0;
 }
 .txt__spinner {

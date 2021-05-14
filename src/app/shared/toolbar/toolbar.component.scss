@@ -1,0 +1,115 @@
+@import "src/styles";
+@import url('https://fonts.googleapis.com/css2?family=Over+the+Rainbow&display=swap');
+nav {
+  padding: 12px 0;
+  background: #FFFFFF;
+}
+.search__content {
+  display: flex;
+  align-items: center;
+}
+.search_input {
+  display: none;
+  align-items: center;
+  padding: 5px 35px 5px 15px;
+  border: 1px solid #f1f1f1;
+  i {
+    font-size: 18px;
+    margin-right: 10px;
+  }
+  input {
+    border: none;
+    width: 100%;
+    font-size: 15px;
+    outline: none;
+  }
+}
+.container__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 40px;
+}
+.info-call {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background: #f9f9f9;
+  p {
+    margin: 0;
+    padding: 5px 15px;
+    span {
+      color: #DD2476;
+      font-weight: 700;
+      font-size: 15px;
+    }
+  }
+}
+.title-logo {
+  font-weight: 500;
+  color: #272D33;
+  margin-right: 15px;
+  p {
+    margin: 0 0 0;
+    //letter-spacing: 0.1em;
+    //font-weight: 400;
+    font-size: 37px;
+    font-family: 'Over the Rainbow', cursive;
+    //padding: 1px 4px;
+    //border-radius: 2px;
+    //color: #fff;
+    //display: table;
+    //background: linear-gradient(90deg, #FF512F 0%, #DD2476 100%);
+  }
+}
+.icon_call {
+  padding: 5px;
+  border: 1px solid #ddd;
+  border-radius: 1000000px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.call__content {
+  display: flex;
+  align-items: center;
+  mat-icon {
+    color: #ddd;
+    font-size: 17px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+.icon_call {
+  margin-right: 10px;
+}
+.info_phone {
+  display: flex;
+  flex-direction: column;
+ }
+.title__span {
+  font-weight: 700;
+  font-size: 15px;
+}
+.sub__title {
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .container__top {
+    flex-direction: column !important;
+  }
+  .call__content {
+    margin-top: 10px;
+  }
+  .info_phone {
+    flex-direction: initial;
+  }
+  .sub__title {
+    margin-left: 10px;
+  }
+  .icon_call {
+    padding: 0 !important;
+  }
+}

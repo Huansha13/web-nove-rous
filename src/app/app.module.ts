@@ -8,10 +8,12 @@ import {MaterialModule} from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 /*  Import external */
 import {FirebsModule} from './firebs/firebs.module';
+import { CarouselComponent } from './shared/componets/carousel/carousel.component';
+import { ToolbarComponent } from './shared/toolbar/toolbar.component';
+import {ProducHomeModule} from './produc-home/produc-home.module';
 @NgModule({
   declarations: [
     AppComponent,
-    HomeComponent
   ],
   imports: [
     BrowserModule,

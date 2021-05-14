@@ -10,64 +10,72 @@
     </div>
   </div>
 </ng-template>
+<app-toolbar></app-toolbar>
 <div class="wrapper">
-  <nav>
-    <div class="logo d-flex" (click)="login()">
-      <img class="logo-nove" src="https://res.cloudinary.com/unjfsc/image/upload/v1619592425/logo-nove_wr4p2i.svg"
-           alt="">
-      <div class="title-logo">
-        <p>@novedadesrous</p>
-      </div>
-    </div>
-    <div class="red-social">
-      <ul>
-        <li><a href="https://www.facebook.com/Novedades-ROUS-108416914722739" target="_blank"> <i
-          class="uil uil-facebook-f"></i> </a></li>
-        <li><a href="" target="_blank"> <i class="uil uil-instagram"></i> </a></li>
-        <li><a routerLink="/admin" mat-button> Admin </a></li>
-
-      </ul>
-    </div>
-  </nav>
+  <app-carousel></app-carousel>
   <br> <br>
-  <div class="container" *ngIf="products$ | async as products; else loading">
-    <div class="row">
-      <div class="col-12 col-sm-12 col-md-6 col-lg-4" *ngFor="let product of products">
-        <div class="box-product">
-          <div class="d-flex">
-            <div class="img-product">
-              <img [src]="product.imgProd" alt="">
-            </div>
-            <div class="content__info">
-              <h3 class="title-product">{{product.nameProd}}</h3>
-              <p class="description-product">{{product.descriptionProd}}</p>
-            </div>
-          </div>
-          <div style="width: 100%" class="priceOf" [ngClass]="{'price': product.off>0}">
-            <div>
-              <mat-chip-list *ngIf="product.off>0">
-                <mat-chip selected class="totalProduct" color="accent">
-                  -{{product.off}}% off
-                </mat-chip>
-              </mat-chip-list>
-            </div>
-            <div class="dsc__price__card">
-              <span class="price__product" [ngClass]="{'priceNo': product.off>0}"
-                    *ngIf="product.priceProd>0">S/. {{product.priceProd | number:'.2-2'}}</span>
-              <span class="dsc"
-                    *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (off * 1 / 100)) | number: '.2-2'}}  </span>
-              <a href="{{wsp}} *{{product.nameProd}}* 😊"
-                 target="_blank" mat-mini-fab color="primary">
-                <mat-icon>shopping_cart</mat-icon>
+  <div class="box__products__off">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-sm-12 col-md-12 col-lg-4" *ngFor="let i of dataFake">
+          <div class="box__product__off">
+            <div class="item">
+              <a>
+                <img [src]="i.img" alt="">
               </a>
+              <div class="txt__container">{{i.name}}</div>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <br>
+  <div class="title_general">
+    <h1>Nuestros productos</h1>
+    <span>_______</span>
+  </div>
+  <br>
+  <div class="container" *ngIf="products$ | async as products; else loading">
+    <div class="row">
+      <div class="col-12 col-sm-12 col-md-6 col-lg-3" *ngFor="let product of products">
+        <div class="box-product">
+          <a routerLink="/info" class="box__a">
+            <div class="content_img_info">
+              <div class="img-product">
+                <img [src]="product.imgProd" alt="">
+              </div>
+              <div class="content__info">
+                <h3 class="title-product">{{product.nameProd}}</h3>
+                <p class="description-product">{{product.descriptionProd}}</p>
+              </div>
+            </div>
+            <div style="width: 100%" class="priceOf" [ngClass]="{'price': product.off>0}">
+              <div>
+                <mat-chip-list *ngIf="product.off>0">
+                  <mat-chip selected class="totalProduct" color="accent">
+                    -{{product.off}}%
+                  </mat-chip>
+                </mat-chip-list>
+              </div>
+              <div class="dsc__price__card">
+              <span class="price__product" [ngClass]="{'priceNo': product.off>0}"
+                    *ngIf="product.priceProd>0">S/. {{product.priceProd | number:'.2-2'}}</span>
+                <span class="dsc"
+                      *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (off * 1 / 100)) | number: '.2-2'}}  </span>
+                <!--              <a href="{{wsp}} *{{product.nameProd}}* 😊"-->
+                <!--                 target="_blank" mat-mini-fab color="primary">-->
+                <!--                <mat-icon>shopping_cart</mat-icon>-->
+                <!--              </a>-->
+              </div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
-
+<app-btn-wsp></app-btn-wsp>
 <footer>
   <div class="footer-copy">
     <div class="logo d-flex">
