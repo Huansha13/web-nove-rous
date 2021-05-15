@@ -71,8 +71,8 @@
                 <div style="width: 100%" class="priceOf" [ngClass]="{'price': product.off>0}">
                   <div>
                     <mat-chip-list *ngIf="product.off>0">
-                      <mat-chip selected class="totalProduct" color="accent">
-                        -{{product.off}}%
+                      <mat-chip selected class="totalProduct" color="primary">
+                        -{{product.off}}% dscto
                       </mat-chip>
                     </mat-chip-list>
                   </div>
@@ -92,7 +92,7 @@
                   <!--              </a>-->
                 </div>
                 <div class="btn__product">
-                  <a [routerLink]="['/info', product.id]" class="btn_view" mat-button color="warn"><i class="uil uil-eye"></i> <span>Ver detalle</span></a>
+                  <a [routerLink]="['/info', product.id]" class="btn_view" mat-button><i class="uil uil-eye"></i> <span>Ver detalle</span></a>
                   <a href="{{wsp}} *{{product.nameProd}}* 😊" target="_blank" class="btn_card" mat-button color="primary"> <i class="uil uil-shopping-cart"></i> <span>!Quiero pedir!</span> </a>
                 </div>
               </div>
