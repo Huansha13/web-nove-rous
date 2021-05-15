@@ -85,11 +85,12 @@
                   <span class="price__product" [ngClass]="{'priceNo': product.off>0}"
                         *ngIf="product.priceProd>0">S/. {{product.priceProd | number:'.2-2'}}</span>
                   <span class="dsc"
-                        *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (off * 1 / 100)) | number: '.2-2'}}  </span>
+                        *ngIf="product.off>0"> S/. {{product.priceProd - (product.priceProd * (product.off * 1 / 100)) | number: '.2-2'}}  </span>
                   <!--              <a href="{{wsp}} *{{product.nameProd}}* 😊"-->
                   <!--                 target="_blank" mat-mini-fab color="primary">-->
                   <!--                <mat-icon>shopping_cart</mat-icon>-->
                   <!--              </a>-->
+                  <span>{{product.cantidadProd}}</span>
                 </div>
                 <div class="btn__product">
                   <a [routerLink]="['/info', product.id]" class="btn_view" mat-button><i class="uil uil-eye"></i> <span>Ver detalle</span></a>
