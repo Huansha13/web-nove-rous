@@ -1,5 +1,5 @@
 
-.sectionBtnWsp {
+.box__wsp {
   position: fixed;
   right: 0;
   bottom: 0;
@@ -30,9 +30,15 @@
 }
 #wsp:checked + .wspPaises {
   display: flex !important;
-  margin-bottom: 15px;
-  border-radius: 5px;
+  margin-bottom: 5px;
+  border-radius: 15px;
+  box-shadow: 0px 0px 1px rgba(0, 0, 0, 0.45);
 }
+
+#wspc:checked + .wspPaises {
+  display: none !important;
+}
+
 .wspPaises {
 
   ul {
@@ -84,11 +90,20 @@
 .photoPerfil {
   position: relative;
   img {
-    width: 40px;
-    height: 40px;
+    width: 35px;
+    height: 35px;
     object-fit: cover;
     border-radius: 50%;
   }
+}
+.box__chat {
+  background: #FFFFFF;
+}
+.open {
+  display: initial !important;
+}
+.close {
+  display: none !important;
 }
 .return {
   background: transparent;
@@ -99,7 +114,7 @@
   background: #0c1924;
   display: flex;
   align-items: center;
-  padding: 15px;
+  padding: 10px;
 }
 
 .photoPerfil {
@@ -118,11 +133,12 @@
   font-size: 15px;
   color: #FFFFFF;
   font-weight: 500;
-  margin-left: 10px;
+  margin-left: 15px;
 }
 .content__chat {
   background: #FFFFFF;
-  padding: 50px 10px;
+  padding: 50px 10px 10px 10px;
+  box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 28px, rgba(0, 0, 0, 0.22) 0px 10px 10px;
 }
 .message {
   display: flex;
@@ -145,13 +161,17 @@
   .txtUse {
     text-align: right;
     span {
-      width: 50px;
-      background: #aae7ff;
       font-size: 15px;
       border-radius: 10000000000000px;
-      padding: 10px 20px;
+      padding: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
     }
   }
+}
+.circle {
+  margin-left: 10px;
 }
 
 .content_input {
@@ -171,11 +191,13 @@
   }
 }
 
+
 @media (max-width: 768px) {
-  .sectionBtnWsp {
-    padding: 30px 30px !important;
+  .box__wsp {
+    padding: 0px 23px 23px 0 !important;
   }
   .sectionBtnWsp {
     //display: none;
   }
 }
+

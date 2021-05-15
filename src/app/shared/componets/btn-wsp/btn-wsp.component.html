@@ -1,10 +1,9 @@
-<div class="sectionBtnWsp animate__animated animate__wobble">
-  <input type="checkbox" id="wsp" style="display: none">
-  <div class="wspPaises animate__animated animate__bounceIn">
-    <div class="box__chat">
+<div class="box__wsp">
+  <div class="border_Box_chat"  [ngClass]="{open:!wspd, close:wspd}">
+    <div class="box__chat" [ngClass]="{open:!wspd, close:wspd}">
       <div class="toolbar__chat">
         <div class="icon__close">
-         <button class="return" mat-mini-fab>  <mat-icon>chevron_left</mat-icon> </button>
+          <button (click)="wspdialgo()" class="return" mat-mini-fab>  <mat-icon>chevron_left</mat-icon> </button>
         </div>
         <div class="photoPerfil">
           <img [src]="photo" alt="">
@@ -17,8 +16,16 @@
           <div class="txt"><span>¡Hola! 👋🤚✋, &nbsp; ¿como estas?</span></div>
           <div class="txt"><span>¿cual es tu pregunta ?</span></div>
         </div>
-        <div class="messageUse">
-          <div class="txtUse"><span>...</span></div>
+        <div class="messageUse" *ngIf='textoDeInput'>
+          <div class="txtUse">
+            <span>
+              <div class="circle" *ngFor="let i of [1,1,1]">
+                <div class="spinner-grow spinner-grow-sm" role="status">
+                  <span class="visually-hidden">Loading...</span>
+                </div>
+              </div>
+            </span>
+          </div>
         </div>
         <br>
         <br>
@@ -28,19 +35,13 @@
         </div>
       </div>
     </div>
-
-<!--    <ul>-->
-<!--      <li><a target="_blank" href="{{duda}}"><span class="namePais">Abrir WhatsApp  <mat-icon color="accent">chat_bubble</mat-icon> </span></a></li>-->
-<!--    </ul>-->
   </div>
   <div class="sect-btn">
-    <label for="wsp">
-      <a class="btnWsp" mat-button>
+    <a class="btnWsp" mat-button (click)="wspdialgo()">
         <span class="txtBtnWsp icon">
           <i class="uil uil-whatsapp"></i>
           &nbsp;¿Preguntas? !Escribenos!
         </span>
-      </a>
-    </label>
+    </a>
   </div>
 </div>
