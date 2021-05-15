@@ -14,6 +14,7 @@
   align-items: center;
   cursor: pointer;
   padding: 11px 22px;
+  border-radius: 0;
 }
 .icon {
   display: flex;
@@ -29,7 +30,8 @@
 }
 #wsp:checked + .wspPaises {
   display: flex !important;
-  flex-direction: column;
+  margin-bottom: 15px;
+  border-radius: 5px;
 }
 .wspPaises {
 
@@ -56,6 +58,10 @@
 .sect-btn {
   display: flex;
   justify-content: flex-end;
+  label {
+    display: flex;
+    align-items: center;
+  }
 }
 .namePais {
   background: #FFFFFF;
@@ -65,6 +71,8 @@
   margin-right: 10px;
   color: #121212;
   font-weight: 500;
+  display: flex;
+  align-items: center;
 
 }
 .txtBtnWsp {
@@ -72,11 +80,102 @@
   font-size: 16px;
   font-weight: 500;
 }
+
+.photoPerfil {
+  position: relative;
+  img {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+  }
+}
+.return {
+  background: transparent;
+  color: #FFFFFF;
+  font-size: 24px;
+}
+.toolbar__chat {
+  background: #0c1924;
+  display: flex;
+  align-items: center;
+  padding: 15px;
+}
+
+.photoPerfil {
+  margin-left: 15px;
+}
+.inline {
+  width: 10px;
+  height: 10px;
+  background: #00CA65;
+  border-radius: 50%;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.nameInfo {
+  font-size: 15px;
+  color: #FFFFFF;
+  font-weight: 500;
+  margin-left: 10px;
+}
+.content__chat {
+  background: #FFFFFF;
+  padding: 50px 10px;
+}
+.message {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.txt {
+  margin-top: 20px;
+  span {
+    background: #f1f1f1;
+    font-size: 15px;
+    border-radius: 10000000000000px;
+    padding: 10px;
+  }
+}
+
+.messageUse {
+  margin-top: 20px;
+  .txtUse {
+    text-align: right;
+    span {
+      width: 50px;
+      background: #aae7ff;
+      font-size: 15px;
+      border-radius: 10000000000000px;
+      padding: 10px 20px;
+    }
+  }
+}
+
+.content_input {
+  display: flex;
+  align-items: center;
+  textarea {
+    border: 1px solid #f1f1f1;
+    outline: none;
+    width: 100%;
+    height: 40px;
+    font-size: 13px;
+    padding: 10px 22px;
+    border-radius: 10000px;
+  }
+  textarea::-webkit-scrollbar {
+    display: none;
+  }
+}
+
 @media (max-width: 768px) {
   .sectionBtnWsp {
     padding: 30px 30px !important;
   }
   .sectionBtnWsp {
-    display: none;
+    //display: none;
   }
 }

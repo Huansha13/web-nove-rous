@@ -1,20 +1,46 @@
 <div class="sectionBtnWsp animate__animated animate__wobble">
   <input type="checkbox" id="wsp" style="display: none">
   <div class="wspPaises animate__animated animate__bounceIn">
-    <ul>
-      <li><a href=""><span class="namePais">Peru</span> &nbsp; <img src="https://www.calculadoradefletes.com/assets/img/flags/peruRound.svg" alt=""></a></li>
-    </ul>
+    <div class="box__chat">
+      <div class="toolbar__chat">
+        <div class="icon__close">
+         <button class="return" mat-mini-fab>  <mat-icon>chevron_left</mat-icon> </button>
+        </div>
+        <div class="photoPerfil">
+          <img [src]="photo" alt="">
+          <div class="inline"></div>
+        </div>
+        <div class="nameInfo">Rosmeri Ñope</div>
+      </div>
+      <div class="content__chat">
+        <div class="message">
+          <div class="txt"><span>¡Hola! 👋🤚✋, &nbsp; ¿como estas?</span></div>
+          <div class="txt"><span>¿cual es tu pregunta ?</span></div>
+        </div>
+        <div class="messageUse">
+          <div class="txtUse"><span>...</span></div>
+        </div>
+        <br>
+        <br>
+        <div class="content_input">
+          <textarea [(ngModel)]='textoDeInput'  type="text" autocomplete="off" placeholder="Escribe el mensaje"></textarea>
+          <a target="_blank" *ngIf='textoDeInput' href="{{duda}} {{textoDeInput}}" mat-icon-button (click)="mesaje()"><mat-icon>send</mat-icon></a>
+        </div>
+      </div>
+    </div>
+
+<!--    <ul>-->
+<!--      <li><a target="_blank" href="{{duda}}"><span class="namePais">Abrir WhatsApp  <mat-icon color="accent">chat_bubble</mat-icon> </span></a></li>-->
+<!--    </ul>-->
   </div>
   <div class="sect-btn">
     <label for="wsp">
-      <div class="btnWsp">
-        <div class="icon">
+      <a class="btnWsp" mat-button>
+        <span class="txtBtnWsp icon">
           <i class="uil uil-whatsapp"></i>
-        </div>
-        <div class="txtBtnWsp">
-          ¿Preguntas? !Escribenos!
-        </div>
-      </div>
+          &nbsp;¿Preguntas? !Escribenos!
+        </span>
+      </a>
     </label>
   </div>
 </div>
