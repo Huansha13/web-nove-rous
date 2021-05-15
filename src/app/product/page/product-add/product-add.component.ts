@@ -26,6 +26,9 @@ export class ProductAddComponent implements OnInit {
     totalProd: new FormControl('', Validators.required),
     priceProd: new FormControl('', Validators.required),
     soldProd: new FormControl('', Validators.required),
+    cantidadProd: new FormControl('', Validators.required),
+    gastoCompra: new FormControl('', Validators.required),
+    off: new FormControl('', Validators.required)
   });
 
 

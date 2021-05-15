@@ -9,6 +9,7 @@ import {FileI} from '../models/file.interface';
 import Swal from 'sweetalert2';
 import {Router} from '@angular/router';
 import {MatDialog} from '@angular/material/dialog';
+import {FormControl, Validators} from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'
@@ -87,7 +88,10 @@ export class ProductService {
       fileRef: this.filePath,
       priceProd: prod.priceProd,
       totalProd: prod.totalProd,
-      soldProd: prod.soldProd
+      soldProd: prod.soldProd,
+      cantidadProd: prod.cantidadProd,
+      gastoCompra: prod.gastoCompra,
+      off: prod.off
     };
     if (prod.id) {
       return this.productsCollection.doc(prod.id).update(prodObj);

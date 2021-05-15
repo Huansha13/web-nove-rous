@@ -26,6 +26,9 @@ export class ProductEditComponent implements OnInit {
     totalProd: new FormControl('', Validators.required),
     priceProd: new FormControl('', Validators.required),
     soldProd: new FormControl('', Validators.required),
+    cantidadProd: new FormControl('', Validators.required),
+    gastoCompra: new FormControl('', Validators.required),
+    off: new FormControl('', Validators.required)
   });
 
   ngOnInit(): void {
@@ -91,7 +94,10 @@ export class ProductEditComponent implements OnInit {
       descriptionProd: this.prod.descriptionProd,
       totalProd: this.prod.totalProd,
       priceProd: this.prod.priceProd,
-      soldProd: this.prod.soldProd
+      soldProd: this.prod.soldProd,
+      cantidadProd: this.prod.cantidadProd,
+      gastoCompra: this.prod.gastoCompra,
+      off: this.prod.off
     });
   }
 }

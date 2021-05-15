@@ -28,7 +28,7 @@
           </div>
           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
             <div class="row">
-              <div class="col-12 col-sm-12 col-md-12 col-lg-4">
+              <div class="col-12 col-sm-12 col-md-12 col-lg-3">
                 <mat-form-field appearance="outline">
                   <mat-label>Precio</mat-label>
                   <input type="number" matInput placeholder="Precio prod." formControlName="priceProd" required>
@@ -37,6 +37,37 @@
 
                 </mat-form-field>
               </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <mat-form-field appearance="fill">
+                  <mat-label>Cantidad</mat-label>
+                  <mat-select required formControlName="cantidadProd">
+                    <mat-option value="und.">Undidad</mat-option>
+                    <mat-option value="paq.">Paquete</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-sm-6 col-md-6 col-lg-3">
+                <mat-form-field appearance="fill">
+                  <mat-label>Descuento</mat-label>
+                  <mat-select required formControlName="off">
+                    <mat-option value="0">0%</mat-option>
+                    <mat-option value="5">-5%</mat-option>
+                    <mat-option value="10">-10%</mat-option>
+                    <mat-option value="15">-15%</mat-option>
+                    <mat-option value="20">-20%</mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="col-12 col-sm-12 col-md-12 col-lg-3">
+                <mat-form-field appearance="outline">
+                  <mat-label>Gato total</mat-label>
+                  <input type="number" matInput placeholder="S/." formControlName="gastoCompra" required>
+                </mat-form-field>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-sm-12 col-md-12 col-lg-12">
+            <div class="row">
               <div class="col-12 col-sm-6 col-md-6 col-lg-4">
                 <mat-form-field appearance="outline">
                   <mat-label>Total</mat-label>

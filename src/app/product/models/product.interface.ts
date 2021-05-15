@@ -6,6 +6,8 @@ export interface ProductI {
   priceProd: number;
   totalProd: number;
   soldProd: number;
-  // off: number;
+  off: number;
+  cantidadProd: string;
+  gastoCompra: string;
   fileRef?: string;
 }

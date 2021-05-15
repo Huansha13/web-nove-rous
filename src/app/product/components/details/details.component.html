@@ -27,7 +27,7 @@
               <span>{{dts.totalProd}}</span> Productos comprados
             </mat-chip>
             <mat-chip selected class="gastoCompra">
-              <span>S/. {{gatoCompra | number: '.2-2'}}</span> &nbsp; Gastos por compra
+              <span>S/. {{dts.gastoCompra | number: '.2-2'}}</span> &nbsp; Gastos por compra
             </mat-chip>
             <mat-chip selected>
               Precio venta S/. {{dts.priceProd | number: '.2-2'}}
@@ -42,7 +42,7 @@
               Ganancia total S/. {{dts.priceProd * dts.soldProd | number: '.2-2'}}
             </mat-chip>
             <mat-chip selected class="miGanancia" >
-              Mi ganancia S/. {{(dts.priceProd * dts.soldProd) - (gatoCompra) | number: '.2-2'}}
+              Mi ganancia S/. {{(dts.priceProd * dts.soldProd) - (dts.gastoCompra) | number: '.2-2'}}
             </mat-chip>
 
           </mat-chip-list>
