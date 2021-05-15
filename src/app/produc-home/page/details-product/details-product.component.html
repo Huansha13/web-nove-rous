@@ -14,15 +14,13 @@
         </div>
         <h2>{{prod.nameProd}}</h2>
         <p>{{prod.descriptionProd}}</p>
-        <br>
-        <h1>S/. {{prod.priceProd - (prod.priceProd * (off * 1 / 100)) | number: '.2-2'}}</h1>
+        <h1 *ngIf="prod.off>0">S/. {{prod.priceProd - (prod.priceProd * (prod.off * 1 / 100)) | number: '.2-2'}}</h1>
         <div class="promo__content d-flex">
-          <mat-chip-list>
-            <mat-chip selected color="accent">-{{prod.off}}%</mat-chip>
+          <mat-chip-list *ngIf="prod.off>0">
+            <mat-chip selected color="accent">-{{prod.off}}% dscto.</mat-chip>
           </mat-chip-list>
-          <span>S/. {{prod.priceProd | number: '.2-2'}} </span>
+          <span *ngIf="prod.priceProd>0" [ngClass]="{'priceNormal': prod.off>0}">S/. {{prod.priceProd | number: '.2-2'}} </span>
         </div>
-        <br> <br>
         <a href="{{wsp}} *{{prod.nameProd}}* 😊" target="_blank" mat-flat-button color="primary" style="width: 100%;">
           <mat-icon >shopping_cart</mat-icon> ¡Quiero pedir!
         </a>
